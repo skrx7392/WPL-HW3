@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="Book">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="book" minOccurs="5" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="author">
+								<xs:complexType>
+									<xs:sequence>
+
+										<xs:element name="authorname">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="lastname">
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+																<xs:pattern value="([A-Z]+[a-z]*)" />
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:choice minOccurs="0" maxOccurs="1">
+														<xs:element name="MI">
+															<xs:simpleType>
+																<xs:restriction base="xs:string">
+																	<xs:pattern value="([A-Z]+.)" />
+																</xs:restriction>
+															</xs:simpleType>
+														</xs:element>
+													</xs:choice>
+													<xs:element name="firstname">
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+																<xs:pattern value="([A-Z]+[a-z]*)" />
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="dateofbirth">
+											<xs:simpleType>
+												<xs:restriction base="xs:date">
+													<xs:minInclusive value="1900-01-01">
+													</xs:minInclusive>
+													<xs:maxInclusive value="2015-12-31"></xs:maxInclusive>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="education">
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:enumeration value="BA" />
+													<xs:enumeration value="BS" />
+													<xs:enumeration value="MS" />
+													<xs:enumeration value="MBA" />
+													<xs:enumeration value="PHD" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="address">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="street">
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+																<xs:pattern value="([0-9]+([ ][A-Z]+[a-z]*)+)"></xs:pattern>
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:choice minOccurs="0" maxOccurs="1">
+														<xs:element name="apt">
+															<xs:simpleType>
+																<xs:restriction base="xs:integer">
+																	<xs:minExclusive value="100" />
+																	<xs:maxInclusive value="2000" />
+																</xs:restriction>
+															</xs:simpleType>
+														</xs:element>
+													</xs:choice>
+													<xs:element name="city">
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+																<xs:pattern value="([A-Z][a-z]*)" />
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element name="zipcode">
+														<xs:simpleType>
+															<xs:restriction base="xs:integer">
+																<xs:minInclusive value="11111" />
+																<xs:maxInclusive value="99999" />
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element name="country">
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+																<xs:pattern value="([A-Z]+)" />
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:choice minOccurs="0" maxOccurs="unbounded">
+											<xs:element name="Co-AuthorNames" type="xs:string">
+											</xs:element>
+										</xs:choice>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="PublisherInfo">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="PublisherName">
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:pattern value="([A-Z]+[a-z]*)"></xs:pattern>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="PublisherAddress">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="StreetName">
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+																<xs:pattern value="([0-9]+([ ][A-Z]+[a-z]*)+)"></xs:pattern>
+
+															</xs:restriction>
+														</xs:simpleType>
+
+													</xs:element>
+													<xs:choice minOccurs="0" maxOccurs="1">
+														<xs:element name="SuiteNumber" type="xs:integer">
+														</xs:element>
+													</xs:choice>
+													<xs:element name="City">
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+																<xs:pattern value="([A-Z]+[a-z]*)"></xs:pattern>
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element name="zipcode">
+														<xs:simpleType>
+															<xs:restriction base="xs:integer">
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element name="country">
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+																<xs:pattern value="([A-Z]+)" />
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>							
+							<xs:element name="BookInfo">
+								<xs:complexType>
+
+									<xs:sequence>
+
+										<xs:element name="Title">
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:pattern value="([A-Z]+[a-z]*)([ ]?[A-Z]+[a-z]*)*"></xs:pattern>
+												</xs:restriction>
+
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="ISBN">
+
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:pattern
+														value="([0-9|A-Z|a-z]?[0-9|A-Z|a-z]?[0-9|A-Z|a-z]?(-)[0-9|A-Z|a-z]?[0-9|A-Z|a-z]?[0-9|A-Z|a-z]?(-)[0-9|A-Z|a-z]?[0-9|A-Z|a-z]?[0-9|A-Z|a-z]?[0-9|A-Z|a-z]?)">
+													</xs:pattern>
+
+												</xs:restriction>
+
+											</xs:simpleType>
+										</xs:element>
+
+										<xs:element name="price">
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="xs:decimal">
+														<xs:attribute name="currency" type="xs:string">
+														</xs:attribute>
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+										
+										<xs:element name="PublicationDate" type="xs:date">
+
+										</xs:element>
+										<xs:element name="TotalTime">
+											<xs:simpleType>
+												<xs:restriction base="xs:duration">
+													<xs:pattern value="[\-]?P[0-9]+(Y([0-9]+M[0-9]?D)?|M)"></xs:pattern>
+												</xs:restriction>
+											</xs:simpleType>
+
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+
+	</xs:element>
+	<xs:complexType name="AttrElement">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="currency" type="xs:string">
+				</xs:attribute>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+</xs:schema>

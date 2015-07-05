@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Books Info Display</title>
+<script type="text/javascript">
+if (window.XMLHttpRequest)
+{// code for IE7+, Firefox
+   xmlhttp=new XMLHttpRequest();
+}
+else
+{// code for IE6, IE5
+   xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+}
+xmlhttp.open("GET","Books.xml",false);
+xmlhttp.send();
+xmlDoc=xmlhttp.responseXML;
+document.write("<table border='1'>");
+var x=xmlDoc.getElementsByTagName("book");
+for (i=0;i<x.length;i++)
+{
+  document.write("<tr><th>");
+  document.write(x[i].nodeName);
+  document.write("</th></tr>");
+
+
+  document.write("<tr><td>"+x[i].getElementsByTagName("BookInfo")[0].getElementsByTagName("Title")[0].nodeName);
+  document.write("</td><td>"+x[i].getElementsByTagName("BookInfo")[0].getElementsByTagName("Title")[0].firstChild.nodeValue);
+  document.write("</td></tr>");
+
+  document.write("<tr><td>"+x[i].getElementsByTagName("BookInfo")[0].getElementsByTagName("ISBN")[0].nodeName);
+  document.write("</td><td>"+x[i].getElementsByTagName("BookInfo")[0].getElementsByTagName("ISBN")[0].firstChild.nodeValue);
+  document.write("</td></tr>");
+
+  document.write("<tr><td>"+x[i].getElementsByTagName("BookInfo")[0].getElementsByTagName("price")[0].nodeName);
+  document.write("</td><td>"+x[i].getElementsByTagName("BookInfo")[0].getElementsByTagName("price")[0].firstChild.nodeValue);
+  document.write("</td></tr>");
+
+  document.write("<tr><td>"+x[i].getElementsByTagName("BookInfo")[0].getElementsByTagName("PublicationDate")[0].nodeName);
+  document.write("</td><td>"+x[i].getElementsByTagName("BookInfo")[0].getElementsByTagName("PublicationDate")[0].firstChild.nodeValue);
+  document.write("</td></tr>");
+
+  document.write("<tr><td>"+x[i].getElementsByTagName("BookInfo")[0].getElementsByTagName("TotalTime")[0].nodeName);
+  document.write("</td><td>"+x[i].getElementsByTagName("BookInfo")[0].getElementsByTagName("TotalTime")[0].firstChild.nodeValue);
+  document.write("</td></tr>");
+
+
+var lasname=x[i].getElementsByTagName("author")[0].getElementsByTagName("authorname")[0].getElementsByTagName("lastname");
+	document.write("<tr><td>");
+
+	document.write(lasname[0].nodeName);
+	document.write("</td><td>");
+
+	for(j=0;j<lasname.length;j++)
+	{
+
+	document.write(lasname[j].firstChild.nodeValue);
+	if(j!=lasname.length-1)
+		{
+		document.write(",");
+
+		}
+
+	}
+	document.write("</td></tr>");
+
+var mi=x[i].getElementsByTagName("author")[0].getElementsByTagName("authorname")[0].getElementsByTagName("MI");
+
+if(mi.length > 0)
+	{
+	  document.write("<tr><td>");
+
+	document.write(mi[0].nodeName);
+	document.write("</td><td>");
+
+	for(j=0;j<mi.length;j++)
+	{
+
+	document.write(mi[j].firstChild.nodeValue);
+	if(j!=mi.length-1)
+		{
+		document.write(",");
+
+		}
+
+	}
+	document.write("</td></tr>");
+
+}
+
+var fasname=x[i].getElementsByTagName("author")[0].getElementsByTagName("authorname")[0].getElementsByTagName("firstname");
+	document.write("<tr><td>");
+
+	document.write(fasname[0].nodeName);
+	document.write("</td><td>");
+
+	for(j=0;j<fasname.length;j++)
+	{
+
+	document.write(fasname[j].firstChild.nodeValue);
+	if(j!=fasname.length-1)
+		{
+		document.write(",");
+
+		}
+
+	}
+	document.write("</td></tr>");
+
+  document.write("<tr><td>"+x[i].getElementsByTagName("author")[0].getElementsByTagName("dateofbirth")[0].nodeName+"</td><td>"+x[i].getElementsByTagName("author")[0].getElementsByTagName("dateofbirth")[0].firstChild.nodeValue);
+  document.write("</td></tr>");
+
+  document.write("<tr><td>"+x[i].getElementsByTagName("author")[0].getElementsByTagName("education")[0].nodeName+"</td><td>"+x[i].getElementsByTagName("author")[0].getElementsByTagName("education")[0].firstChild.nodeValue);
+
+  document.write("<tr><td>"+x[i].getElementsByTagName("author")[0].getElementsByTagName("address")[0].nodeName+"</td><td>");
+
+  document.write(x[i].getElementsByTagName("author")[0].getElementsByTagName("address")[0].getElementsByTagName("street")[0].firstChild.nodeValue);
+  document.write(", "+x[i].getElementsByTagName("author")[0].getElementsByTagName("address")[0].getElementsByTagName("apt")[0].firstChild.nodeValue);
+  document.write(", "+x[i].getElementsByTagName("author")[0].getElementsByTagName("address")[0].getElementsByTagName("city")[0].firstChild.nodeValue);
+  document.write(", "+x[i].getElementsByTagName("author")[0].getElementsByTagName("address")[0].getElementsByTagName("zipcode")[0].firstChild.nodeValue);
+  document.write(", "+x[i].getElementsByTagName("author")[0].getElementsByTagName("address")[0].getElementsByTagName("country")[0].firstChild.nodeValue);
+
+document.write("<tr><td>"+x[i].getElementsByTagName("PublisherInfo")[0].nodeName);
+document.write("</td><td>"+x[i].getElementsByTagName("PublisherInfo")[0].childNodes[1].firstChild.nodeValue);
+document.write(", "+x[i].getElementsByTagName("PublisherInfo")[0].getElementsByTagName("PublisherAddress")[0].childNodes[1].firstChild.nodeValue);
+document.write(", "+x[i].getElementsByTagName("PublisherInfo")[0].getElementsByTagName("PublisherAddress")[0].childNodes[3].firstChild.nodeValue);
+document.write(", "+x[i].getElementsByTagName("PublisherInfo")[0].getElementsByTagName("PublisherAddress")[0].childNodes[5].firstChild.nodeValue);
+document.write(", "+x[i].getElementsByTagName("PublisherInfo")[0].getElementsByTagName("PublisherAddress")[0].childNodes[7].firstChild.nodeValue);
+
+document.write("</td></tr>");
+
+}
+document.write("</table>");
+
+document.write("Xpath Query Result:");
+document.write("<br>");
+
+var nodes = xmlDoc.evaluate("//price",xmlDoc,null,XPathResult.ANY_TYPE, null);
+document.write("Total cost of all the books is ");
+
+
+var totalCost=0;
+
+
+var result=nodes.iterateNext();
+
+while (result)
+  {
+	totalCost=totalCost+parseInt(result.childNodes[0].nodeValue);
+  result=nodes.iterateNext();
+  }
+document.write(totalCost);
+document.write("<br> Total cost of all the books written by Paulo Coelho is");
+document.write("<br>");
+
+var nodes1 = xmlDoc.evaluate("//book[author/authorname/lastname='Coelho']",xmlDoc,null,XPathResult.ANY_TYPE, null);
+var result1=nodes1.iterateNext();
+var newcost=0;
+while (result1)
+  {
+	var ndd=result1.getElementsByTagName("BookInfo")[0].getElementsByTagName("price")[0].firstChild.nodeValue;
+	result1=nodes1.iterateNext();
+	newcost=newcost+parseInt(ndd);
+  }
+document.write(newcost);
+document.write("<br>");
+document.write("<br>");
+
+document.write("Name and book titles of all authors that have a MS or MBA");
+document.write("<br>");
+
+var nodes2 = xmlDoc.evaluate("//book[author/education='MBA'] | //book[author/education='MS']",xmlDoc,null,XPathResult.ANY_TYPE, null);
+var result2=nodes2.iterateNext();
+while(result2)
+	{
+	var name=result2.getElementsByTagName("author")[0].getElementsByTagName("authorname")[0].getElementsByTagName("lastname")[0].firstChild.nodeValue;
+	var fname=result2.getElementsByTagName("author")[0].getElementsByTagName("authorname")[0].getElementsByTagName("firstname")[0].firstChild.nodeValue;
+var fullname= name+" "+fname;
+	var title=result2.getElementsByTagName("BookInfo")[0].getElementsByTagName("Title")[0].firstChild.nodeValue;
+document.write("Author Name = "+fullname +" book title = "+title);
+document.write("<br>");
+document.write("<br>");
+
+
+result2=nodes2.iterateNext();
+	}
+document.write("Book title, author name(s), and publisher name of all the books that cost less than $100");
+document.write("<br>");
+var nodes3 = xmlDoc.evaluate("//book[BookInfo/price < 100]",xmlDoc,null,XPathResult.ANY_TYPE, null);
+var result3=nodes3.iterateNext();
+while(result3)
+	{
+	var name=result3.getElementsByTagName("author")[0].getElementsByTagName("authorname")[0].getElementsByTagName("lastname")[0].firstChild.nodeValue;
+	var fname=result3.getElementsByTagName("author")[0].getElementsByTagName("authorname")[0].getElementsByTagName("firstname")[0].firstChild.nodeValue;
+var fullname= name+" "+fname;
+var title=result3.getElementsByTagName("BookInfo")[0].getElementsByTagName("Title")[0].firstChild.nodeValue;
+var publisherName=result3.getElementsByTagName("PublisherInfo")[0].getElementsByTagName("PublisherName")[0].firstChild.nodeValue;
+
+document.write("<br>");
+document.write("Book Title = "+title+ ", Author Name = "+fullname);
+
+document.write(", publisher name = " +publisherName);
+document.write("<br>");
+result3=nodes3.iterateNext();
+	}
+
+document.write("<br>");
+document.write("<br>");
+document.write("<br>");
+document.write("Book title, author name(s), and publisher name of all the books that were published after 2010");
+
+var nodes4 = xmlDoc.evaluate("//book/BookInfo[substring(PublicationDate,1,4) > 2010]",xmlDoc,null,XPathResult.ANY_TYPE, null);
+var result5=nodes4.iterateNext();
+while(result5)
+{
+	var xpath="//book[BookInfo/Title='"+result5.getElementsByTagName("Title")[0].firstChild.nodeValue+"']";
+	
+	var nodes5 = xmlDoc.evaluate(xpath,xmlDoc,null,XPathResult.ANY_TYPE, null);
+	var result4=nodes5.iterateNext();
+
+	
+var name=result4.getElementsByTagName("author")[0].getElementsByTagName("authorname")[0].getElementsByTagName("lastname")[0].firstChild.nodeValue;
+var fname=result4.getElementsByTagName("author")[0].getElementsByTagName("authorname")[0].getElementsByTagName("firstname")[0].firstChild.nodeValue;
+var fullname= name+" "+fname;
+var title=result4.getElementsByTagName("BookInfo")[0].getElementsByTagName("Title")[0].firstChild.nodeValue;
+var publisherName=result4.getElementsByTagName("PublisherInfo")[0].getElementsByTagName("PublisherName")[0].firstChild.nodeValue;
+
+document.write("<br>");
+document.write("Book Title = "+title+ ", Author Name = "+fullname);
+
+document.write(", publisher name = " +publisherName);
+document.write("<br>");
+result5 =nodes4.iterateNext();
+}
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

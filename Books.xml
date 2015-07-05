@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Book xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="XMLSchema.xsd">
+  <book>
+    <author>
+      <authorname>
+        <lastname>Brown</lastname>
+        <firstname>Dan</firstname>
+      </authorname>
+      <dateofbirth>1994-06-22</dateofbirth>
+      <education>MBA</education>
+      <address>
+        <street>100 Monalisa Dr</street>
+        <apt>1100</apt>
+        <city>Losangeles</city>
+        <zipcode>56274</zipcode>
+        <country>USA</country>
+      </address>
+    </author>
+    <PublisherInfo>
+      <PublisherName>Universities</PublisherName>
+      <PublisherAddress>
+        <StreetName>302 Dickerson Street</StreetName>
+        <City>Pittsburgh</City>
+        <zipcode>25746</zipcode>
+        <country>USA</country>
+      </PublisherAddress>
+    </PublisherInfo>
+    <BookInfo>
+      <Title>Deception Point</Title>
+      <ISBN>332-392-ISBN</ISBN>
+      <price currency="Dollar">100.0</price>
+      <PublicationDate>2003-03-18</PublicationDate>
+      <TotalTime>P1Y7M5D</TotalTime>
+    </BookInfo>
+  </book>
+   <book>
+    <author>
+      <authorname>
+        <lastname>RK</lastname>
+        <firstname>Narayan</firstname>
+      </authorname>
+      <dateofbirth>1977-08-24</dateofbirth>
+      <education>BA</education>
+      <address>
+        <street>3456 West Rd</street>
+        <apt>567</apt>
+        <city>Hyderabad</city>
+        <zipcode>50151</zipcode>
+        <country>INDIA</country>
+      </address>
+    </author>
+    <PublisherInfo>
+      <PublisherName>Publications</PublisherName>
+      <PublisherAddress>
+        <StreetName>3756 Central Road</StreetName>
+        <City>Bnglore</City>
+        <zipcode>60024</zipcode>
+        <country>INDIA</country>
+      </PublisherAddress>
+    </PublisherInfo>
+    <BookInfo>
+      <Title>Day To Remember</Title>
+      <ISBN>123-455-6788</ISBN>
+      <price currency="Dollar">50.0</price>
+      <PublicationDate>2009-11-12</PublicationDate>
+      <TotalTime>P2Y5M9D</TotalTime>
+    </BookInfo>
+  </book>
+  <book>
+    <author>
+      <authorname>
+        <lastname>Coelho</lastname>
+        <firstname>Paulo</firstname>
+      </authorname>
+      <dateofbirth>1977-08-24</dateofbirth>
+      <education>BS</education>
+      <address>
+        <street>456 Veronica Avenue</street>
+        <apt>567</apt>
+        <city>Rio</city>
+        <zipcode>50151</zipcode>
+        <country>BRAZIL</country>
+      </address>
+    </author>
+    <PublisherInfo>
+      <PublisherName>Harpertorch</PublisherName>
+      <PublisherAddress>
+        <StreetName>195 Broadway</StreetName>
+        <City>Newyork</City>
+        <zipcode>60024</zipcode>
+        <country>USA</country>
+      </PublisherAddress>
+    </PublisherInfo>
+    <BookInfo>
+      <Title>The Alchemist</Title>
+      <ISBN>123-455-6788</ISBN>
+      <price currency="Dollar">35.0</price>
+      <PublicationDate>2009-11-12</PublicationDate>
+      <TotalTime>P2Y5M2D</TotalTime>
+    </BookInfo>
+  </book>
+ <book>
+    <author>
+      <authorname>
+        <lastname>Coelho</lastname>
+        <firstname>Paulo</firstname>
+      </authorname>
+      <dateofbirth>1977-08-24</dateofbirth>
+      <education>BS</education>
+      <address>
+        <street>456 Veronica Avenue</street>
+        <apt>567</apt>
+        <city>Rio</city>
+        <zipcode>50151</zipcode>
+        <country>BRAZIL</country>
+      </address>
+    </author>
+    <PublisherInfo>
+      <PublisherName>Harpertorch</PublisherName>
+      <PublisherAddress>
+        <StreetName>195 Broadway</StreetName>
+        <City>Newyork</City>
+        <zipcode>60024</zipcode>
+        <country>USA</country>
+      </PublisherAddress>
+    </PublisherInfo>
+    <BookInfo>
+      <Title>Eleven Minutes</Title>
+      <ISBN>124-445-5466</ISBN>
+      <price currency="Dollar">120.0</price>
+      <PublicationDate>2011-05-06</PublicationDate>
+      <TotalTime>P1Y5M9D</TotalTime>
+    </BookInfo>
+  </book>
+  
+<book>
+    <author>
+      <authorname>
+        <lastname>Sheldon</lastname>
+        <firstname>Sidney</firstname>
+      </authorname>
+      <dateofbirth>1974-02-17</dateofbirth>
+      <education>MS</education>
+      <address>
+        <street>276 North Parkway</street>
+        <apt>567</apt>
+        <city>Chicago</city>
+        <zipcode>50154</zipcode>
+        <country>USA</country>
+      </address>
+    </author>
+    <PublisherInfo>
+      <PublisherName>Williammorrow</PublisherName>
+      <PublisherAddress>
+        <StreetName>789 Harper Collins</StreetName>
+        <City>Newjersey</City>
+        <zipcode>45678</zipcode>
+        <country>USA</country>
+      </PublisherAddress>
+    </PublisherInfo>
+    <BookInfo>
+      <Title>Doomsday Conspiracy</Title>
+      <ISBN>123-455-674</ISBN>
+      <price currency="Dollar">121.0</price>
+      <PublicationDate>1992-03-23</PublicationDate>
+      <TotalTime>P2Y5M4D</TotalTime>
+    </BookInfo>
+  </book>
+</Book>
